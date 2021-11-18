@@ -113,14 +113,14 @@ Then there is another table called **"SruDbIdMapTable"**, which stores the name 
         stringbuilder.Append(SRUM_Time + ",SRUM,,,[Network Connection] SRUM - Executable: " + SRUM_ProcessName + " -> Bytes Sent: " + BytesSent + " -> Bytes received: " + BytesRecvd + "\r\n");
         File.AppendAllText(CSVPath, stringbuilder.ToString());
         
-There is one small log panel, that tells where the TIMELINE was saved to and few other basics information showing the status of analysis. 
+There is one small log panel, that tells where the TIMELINE was saved to and few other basics information showing the status of the analysis. 
 
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/8.PNG?raw=true)
 
 
 7. Create a LIST of sent and received bytes for each process. 
 
-Once you have the list of all process found in the database, you can choose the one you want to investigate and draw charts by pressing "Show the baseline". 
+Once you have the list of all processes found in the database, you can choose the one you want to investigate and draw charts by pressing "Show the baseline". 
 
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/5.PNG?raw=true)
 
