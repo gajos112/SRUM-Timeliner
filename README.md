@@ -8,7 +8,7 @@ SRUM - Timeliner does two things:
 
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/1.png?raw=true)
 
-It is a GUI tool written in C# .Net Framework 4.7.2. In order to access ESE database (the format used by SRUM) I decided to use ManagedEsent version 2.0.3 (older versions do not work properly). Link to it can be found here: https://github.com/microsoft/ManagedEsent. Going further, to make that executable portable I used Costura.Fody which merges assemblies as embedded resources, therefore you do not have to care about other dependencies. 
+It is a GUI tool written in C# .Net Framework 4.7.2. In order to access ESE database (the format used by SRUM) I decided to use ManagedEsent version 2.0.3 (older versions do not work properly). Link to it can be found here: https://github.com/microsoft/ManagedEsent. In order to make that executable portable I used Costura.Fody which merges assemblies as embedded resources, therefore you do not have to care about other dependencies. 
 
 It was tested on:
 
