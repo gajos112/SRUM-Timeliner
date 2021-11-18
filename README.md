@@ -111,7 +111,7 @@ What is more in the table you can not find the name of executables, only the app
 
 7. Create a LIST of sent and received bytes for each process. 
 
-Once you have the list of all process found in the database, you can choose the one you want to investigate and draw charts by pressing "Shows the baseline". 
+Once you have the list of all process found in the database, you can choose the one you want to investigate and draw charts by pressing "Show the baseline". 
 
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/5.PNG?raw=true)
 
@@ -121,7 +121,7 @@ You can also try looking for the process you are interested in, by simply typing
 
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/6.PNG?raw=true)
 
-You can find 4 charts:
+Once you click "Show the baseline" you will find 4 charts:
 - Bytes sent,
 - Bytes sent (sum per day),
 - Bytes received,
