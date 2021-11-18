@@ -61,7 +61,7 @@ If the file you provided is not a valid SRUM db, the tool will throw an error. I
         Api.JetGetColumnInfo(sesid, dbid, nameTABLE, ColumnBytesSent, out columndefBytesSent);
         Api.JetGetColumnInfo(sesid, dbid, nameTABLE, ColumnBytesRecvd, out columndefBytesRecvd);
 
-5. Going further the tool loops through all rows in the table and get the value from each column:
+5. Going further the tool loops through all rows in the table and gets the value from each column:
 
         int AppId = (int)Api.RetrieveColumnAsInt32(sesid, tableid, columndefAppId.columnid);
         DateTime Time = (DateTime)Api.RetrieveColumnAsDateTime(sesid, tableid, columndefTime.columnid);
