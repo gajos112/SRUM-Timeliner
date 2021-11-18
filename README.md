@@ -42,16 +42,19 @@ If the file ou provided is not a valid SRUM db, the tool will throw an error. If
         LogTextBox.AppendText(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " Status: " + wrn + "\r\n");
 
 2. Open the database:
+
         wrn = Api.OpenDatabase(sesid, pathDB, out dbid, OpenDatabaseGrbit.None);
         LogTextBox.AppendText(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " Opening the database: " + pathDB + "\r\n");
         LogTextBox.AppendText(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " Status: " + wrn + "\r\n");
 
 3. Open the table:
+
         wrn = Api.OpenTable(sesid, dbid, nameTABLE, OpenTableGrbit.None, out tableid);
         LogTextBox.AppendText(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " Opening table: " + nameTABLE + "\r\n");
         LogTextBox.AppendText(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " Status: " + wrn + "\r\n");
 
 4. Get information about the columns:
+
         Api.JetGetColumnInfo(sesid, dbid, nameTABLE, ColumnAppId, out columndefAppId);
         Api.JetGetColumnInfo(sesid, dbid, nameTABLE, ColumnTime, out columndefTime);
         Api.JetGetColumnInfo(sesid, dbid, nameTABLE, ColumnUserID, out columndefUserID);
@@ -59,16 +62,17 @@ If the file ou provided is not a valid SRUM db, the tool will throw an error. If
         Api.JetGetColumnInfo(sesid, dbid, nameTABLE, ColumnBytesRecvd, out columndefBytesRecvd);
 
 5. Going further the tool loops through all rows in the table and get the value from each column:
+
         int AppId = (int)Api.RetrieveColumnAsInt32(sesid, tableid, columndefAppId.columnid);
         DateTime Time = (DateTime)Api.RetrieveColumnAsDateTime(sesid, tableid, columndefTime.columnid);
         Int64 BytesSent = (Int64)Api.RetrieveColumnAsInt64(sesid, tableid, columndefBytesSent.columnid);
         Int64 BytesRecvd = (Int64)Api.RetrieveColumnAsInt64(sesid, tableid, columndefBytesRecvd.columnid);
         string SRUM_ProcessName = GetName(instance, sesid, dbid, AppId);
 
-As you could observed above each value is stored using a diiferent data type. It's quite important as you have to know which method you will choose to extract that data. I found one article that shows data types for all tables: 
+As you could observe above, each value is stored using a different data type. It's quite important as you have to know which method you will choose to extract that data. I found one article that shows data types for all tables: 
 - http://dfir.pro/index.php?link_id=92259,
 
-In the table you can not find the name of the executable, only the application ID. Then there is another table called "SruDbIdMapTable", which stores the name for each ID. The name is an UTF-16 encoded string. Therfore I created a method that retrieves the name of the executable baed on the Application ID. 
+What is more in the table you can not find the name of executables, only the application ID. Then there is another table called "SruDbIdMapTable", which stores the name for each ID. The name is an UTF-16 encoded string. Therefore I created a method that retrieves the name of the executable based on the Application ID. 
 
         static string GetName(JET_INSTANCE instance, JET_SESID sesid, JET_DBID dbid, int AppId)
         {
@@ -101,16 +105,24 @@ In the table you can not find the name of the executable, only the application I
         }
 
 6. Create a TIMELINE (the two lines of the code below are out of context, but just wanted to show you the way it saves each row to the file):
-stringbuilder.Append(SRUM_Time + ",SRUM,,,[Network Connection] SRUM - Executable: " + SRUM_ProcessName + " -> Bytes Sent: " + BytesSent + " -> Bytes received: " + BytesRecvd + "\r\n");
-File.AppendAllText(CSVPath, stringbuilder.ToString());
+
+        stringbuilder.Append(SRUM_Time + ",SRUM,,,[Network Connection] SRUM - Executable: " + SRUM_ProcessName + " -> Bytes Sent: " + BytesSent + " -> Bytes received: " + BytesRecvd + "\r\n");
+        File.AppendAllText(CSVPath, stringbuilder.ToString());
 
 7. Create a LIST of sent and received bytes for each process. 
 
-Once you have the list of all process found in the database, you can choose the one you want to investigate and draw charts by pressing "Shows the baseline". Yuo can find 4 charts:
+Once you have the list of all process found in the database, you can choose the one you want to investigate and draw charts by pressing "Shows the baseline". 
+![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/5.PNG?raw=true)
+
+You can find 4 charts:
 - Bytes sent,
 - Bytes sent (sum per day),
 - Bytes received,
 - Bytes received (sum per day).
+
+![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/9.PNG?raw=true)
+
+![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/10.PNG?raw=true)
 
 You can also zoom in and zoom out the charts if you want to.
 
@@ -119,14 +131,12 @@ You can also zoom in and zoom out the charts if you want to.
 
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/4.PNG?raw=true)
 
-![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/5.PNG?raw=true)
 
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/6.PNG?raw=true)
 
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/7.PNG?raw=true)
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/8.PNG?raw=true)
-![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/9.PNG?raw=true)
-![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/10.PNG?raw=true)
+
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/11.PNG?raw=true)
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/12.png?raw=true)
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/13.png?raw=true)
