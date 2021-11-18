@@ -104,17 +104,17 @@ You can also zoom in and zoom out the charts if you want to.
 
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/3.png?raw=true)
 
-![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/4.png?raw=true)
+![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/4.PNG?raw=true)
 
-![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/5.png?raw=true)
+![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/5.PNG?raw=true)
 
-![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/6.png?raw=true)
+![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/6.PNG?raw=true)
 
-![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/7.png?raw=true)
-![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/8.png?raw=true)
-![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/9.png?raw=true)
-![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/10.png?raw=true)
-![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/11.png?raw=true)
+![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/7.PNG?raw=true)
+![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/8.PNG?raw=true)
+![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/9.PNG?raw=true)
+![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/10.PNG?raw=true)
+![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/11.PNG?raw=true)
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/12.png?raw=true)
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/13.png?raw=true)
-![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/14.png?raw=true)
+![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/14.PNG?raw=true)
