@@ -2,25 +2,25 @@
 
 SRUM Timeliner was designed and created for all DFIR analysts who use SRUM database to discover potential data exfiltration and prove connections with C2 server. What I have observed during last few years is that analysts indeed use that source of information to better understand how much data was sent out and received by either malicious executable or LOLbins. It's quite simple to recognize if the malicious executable send something out, because all entires found in SRUM for the malicious EXE are suspicious, but what about LOLbins? How will you discover if the powershell.exe or wscript.exe was used to transfer data in the corporate environment where multiple scripts are active all the time and transfer data back and forth to corporate servers? The answer can be pretty easy.... Let's look for a spike! It's a very good idea, but first we have to somehow illustrate a baseline for a suspected process. And this is a moment why my tool comes on the table.
 
-SRUM Timeliner does two things:
+SRUM - Timeliner does two things:
 - builds a TIMELINE following the TLN format (https://forensicswiki.xyz/wiki/index.php?title=TLN, http://windowsir.blogspot.com/2009/02/timeline-analysis-pt-iii.html),
-- builds a chart ilustrating a baseline for a sellected process.
+- builds a chart illustrating a baseline for a selected process.
 
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/1.png?raw=true)
 
-It is a GUI tool written in C# .Net Framework 4.7.2. In order to access ESE database (the format used by SRUM) I decided to use ManagedEsent version 2.0.3 (older versions do not work properly). Link to it can be found here: https://github.com/microsoft/ManagedEsent. Going further, to make that executable portable I used Costura.Fody which merges assemblies as embedded resources, therfore you do not have to care about other dependencies. 
+It is a GUI tool written in C# .Net Framework 4.7.2. In order to access ESE database (the format used by SRUM) I decided to use ManagedEsent version 2.0.3 (older versions do not work properly). Link to it can be found here: https://github.com/microsoft/ManagedEsent. Going further, to make that executable portable I used Costura.Fody which merges assemblies as embedded resources, therefore you do not have to care about other dependencies. 
 
 It was tested on:
 
 - Windows 10.0.16299,
 - Windows 10.0.17763,
-- Windows 10.0.19042,
+- Windows 10.0.19042.
 
-The tool accesses and parsses data from the table called **{973F5D5C-1D90-4944-BE8E-24B94231A174}**. More information about the SRUM strucutre can be found under these links:
+The tool accesses and parses data from the table called **{973F5D5C-1D90-4944-BE8E-24B94231A174}**. More information about the SRUM structure can be found under these links:
 - https://deepsec.net/docs/Slides/2019/Beyond_Windows_Forensics_with_Built-in_Microsoft_Tooling_Thomas_Fischer.pdf,
 - https://velociraptor.velocidex.com/digging-into-the-system-resource-usage-monitor-srum-afbadb1a375.
 
-To give you a quick overview of the database, I  listed few useful tables (fro DFIR analysts) below. 
+To give you a quick overview of the database, I listed few useful tables (for DFIR analysts) below. 
 - {DD6636C4-8929-4683-974E-22C046A43763} - Network Connectivity data
 - {D10CA2FE-6FCF-4F6D-848E-B2E99266FA89} - Application Resource usage data
 - {973F5D5C-1D90-4944-BE8E-24B94231A174} - Network usage data 
@@ -33,7 +33,7 @@ First you have to provide a path to a SRUM db that you want to parse. Then you a
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/2.png?raw=true)
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/3.png?raw=true)
 
-If the file ou provided is not a valid SRUM db, the tool will throw an error. If everything is okay it will try to:
+If the file you provided is not a valid SRUM db, the tool will throw an error. If everything is okay it will try to:
 
 1. Attach the database:
 
@@ -76,7 +76,7 @@ What is more in the table you can not find the name of executables, only the app
 
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/14.PNG?raw=true)
 
-Then there is another table called "SruDbIdMapTable", which stores the name for each ID. The name is an UTF-16 encoded string. Therefore I created a method that retrieves the name of the executable based on the Application ID. 
+Then there is another table called **"SruDbIdMapTable"**, which stores the name for each ID. The name is an UTF-16 encoded string. Therefore I created a method that retrieves the name of the executable based on the Application ID. 
 
         static string GetName(JET_INSTANCE instance, JET_SESID sesid, JET_DBID dbid, int AppId)
         {
