@@ -20,7 +20,7 @@ The tool accesses and parses data from the table called **{973F5D5C-1D90-4944-BE
 - https://deepsec.net/docs/Slides/2019/Beyond_Windows_Forensics_with_Built-in_Microsoft_Tooling_Thomas_Fischer.pdf,
 - https://velociraptor.velocidex.com/digging-into-the-system-resource-usage-monitor-srum-afbadb1a375.
 
-To give you a quick overview of the database, I listed few useful tables (for DFIR analysts) below. 
+To give you a quick overview of the database, I listed few useful (for DFIR analysts) tables below. 
 - {DD6636C4-8929-4683-974E-22C046A43763} - Network Connectivity data
 - {D10CA2FE-6FCF-4F6D-848E-B2E99266FA89} - Application Resource usage data
 - {973F5D5C-1D90-4944-BE8E-24B94231A174} - Network usage data 
