@@ -99,11 +99,17 @@ Once you have the list of all process found in the database, you can choose the 
 You can also zoom in and zoom out the charts if you want to.
 
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/1.png?raw=true)
+
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/2.png?raw=true)
+
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/3.png?raw=true)
+
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/4.png?raw=true)
+
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/5.png?raw=true)
+
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/6.png?raw=true)
+
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/7.png?raw=true)
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/8.png?raw=true)
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/9.png?raw=true)
