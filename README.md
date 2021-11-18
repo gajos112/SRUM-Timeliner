@@ -112,6 +112,9 @@ What is more in the table you can not find the name of executables, only the app
 7. Create a LIST of sent and received bytes for each process. 
 
 Once you have the list of all process found in the database, you can choose the one you want to investigate and draw charts by pressing "Shows the baseline". 
+
+![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/4.PNG?raw=true)
+
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/5.PNG?raw=true)
 
 You can find 4 charts:
@@ -126,10 +129,16 @@ You can find 4 charts:
 
 You can also zoom in and zoom out the charts if you want to.
 
+# Timeline
+
+The timeline contains all entires extracted from the database. You can easily review them using BASH and simply GREP what you want analyze. 
+
+![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/12.png?raw=true)
+
+![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/13.png?raw=true)
 
 
 
-![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/4.PNG?raw=true)
 
 
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/6.PNG?raw=true)
@@ -138,6 +147,5 @@ You can also zoom in and zoom out the charts if you want to.
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/8.PNG?raw=true)
 
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/11.PNG?raw=true)
-![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/12.png?raw=true)
-![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/13.png?raw=true)
+
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/14.PNG?raw=true)
