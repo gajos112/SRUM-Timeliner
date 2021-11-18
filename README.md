@@ -131,7 +131,7 @@ You can also zoom in and zoom out the charts if you want to.
 
 # Timeline
 
-The timeline contains all entires extracted from the database. You can easily review them using BASH and simply GREP what you want analyze. 
+The timeline contains all entires extracted from the database. You can easily review them using BASH and simply GREP what you want to analyze. 
 
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/12.png?raw=true)
 
