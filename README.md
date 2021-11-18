@@ -11,9 +11,10 @@ SRUM Timeliner does two things:
 It is a GUI tool written in C# .Net Framework 4.7.2. In order to access ESE database (the format used by SRUM) I decided to use ManagedEsent version 2.0.3 (older versions do not work properly). Link to it can be found here: https://github.com/microsoft/ManagedEsent. Going further, to make that executable portable I used Costura.Fody which merges assemblies as embedded resources, therfore you do not have to care about other dependencies. 
 
 It was tested on:
-•	Windows 10.0.16299,
-•	Windows 10.0.17763,
-•	Windows 10.0.19042,
+
+- Windows 10.0.16299,
+- Windows 10.0.17763,
+- Windows 10.0.19042,
 
 The tool accesses and parsses data from the table called **{973F5D5C-1D90-4944-BE8E-24B94231A174}**. More information about the SRUM strucutre can be found under these links:
 - https://deepsec.net/docs/Slides/2019/Beyond_Windows_Forensics_with_Built-in_Microsoft_Tooling_Thomas_Fischer.pdf,
