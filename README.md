@@ -28,42 +28,42 @@ To give you a quick overview of the database, I  listed few useful tables (fro D
 - {FEE4E14F-02A9-4550-B5CE-5FA2DA202E37} - Energy usage data
 
 # How does it work?
-First you have to provide the path a SRUM db that you want to parse. Then you also have to provide the path where you want to save the output (timeline in TLN format) and click "PARSE". 
+First you have to provide a path to a SRUM db that you want to parse. Then you also have to provide the path where you want to save the output (timeline in TLN format) and click "PARSE". 
 
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/2.png?raw=true)
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/3.png?raw=true)
 
-If ther file is not a SRUM db, the tool will throw you an error. If everything is okay it will try to:
+If the file ou provided is not a valid SRUM db, the tool will throw an error. If everything is okay it will try to:
 
 1. Attach the database:
 
-wrn = Api.JetAttachDatabase(sesid, pathDB, AttachDatabaseGrbit.None);
-LogTextBox.AppendText(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " Attaching the database " + pathDB + "\r\n");
-LogTextBox.AppendText(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " Status: " + wrn + "\r\n");
+        wrn = Api.JetAttachDatabase(sesid, pathDB, AttachDatabaseGrbit.None);
+        LogTextBox.AppendText(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " Attaching the database " + pathDB + "\r\n");
+        LogTextBox.AppendText(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " Status: " + wrn + "\r\n");
 
 2. Open the database:
-wrn = Api.OpenDatabase(sesid, pathDB, out dbid, OpenDatabaseGrbit.None);
-LogTextBox.AppendText(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " Opening the database: " + pathDB + "\r\n");
-LogTextBox.AppendText(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " Status: " + wrn + "\r\n");
+        wrn = Api.OpenDatabase(sesid, pathDB, out dbid, OpenDatabaseGrbit.None);
+        LogTextBox.AppendText(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " Opening the database: " + pathDB + "\r\n");
+        LogTextBox.AppendText(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " Status: " + wrn + "\r\n");
 
 3. Open the table:
-wrn = Api.OpenTable(sesid, dbid, nameTABLE, OpenTableGrbit.None, out tableid);
-LogTextBox.AppendText(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " Opening table: " + nameTABLE + "\r\n");
-LogTextBox.AppendText(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " Status: " + wrn + "\r\n");
+        wrn = Api.OpenTable(sesid, dbid, nameTABLE, OpenTableGrbit.None, out tableid);
+        LogTextBox.AppendText(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " Opening table: " + nameTABLE + "\r\n");
+        LogTextBox.AppendText(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + " Status: " + wrn + "\r\n");
 
 4. Get information about the columns:
-Api.JetGetColumnInfo(sesid, dbid, nameTABLE, ColumnAppId, out columndefAppId);
-Api.JetGetColumnInfo(sesid, dbid, nameTABLE, ColumnTime, out columndefTime);
-Api.JetGetColumnInfo(sesid, dbid, nameTABLE, ColumnUserID, out columndefUserID);
-Api.JetGetColumnInfo(sesid, dbid, nameTABLE, ColumnBytesSent, out columndefBytesSent);
-Api.JetGetColumnInfo(sesid, dbid, nameTABLE, ColumnBytesRecvd, out columndefBytesRecvd);
+        Api.JetGetColumnInfo(sesid, dbid, nameTABLE, ColumnAppId, out columndefAppId);
+        Api.JetGetColumnInfo(sesid, dbid, nameTABLE, ColumnTime, out columndefTime);
+        Api.JetGetColumnInfo(sesid, dbid, nameTABLE, ColumnUserID, out columndefUserID);
+        Api.JetGetColumnInfo(sesid, dbid, nameTABLE, ColumnBytesSent, out columndefBytesSent);
+        Api.JetGetColumnInfo(sesid, dbid, nameTABLE, ColumnBytesRecvd, out columndefBytesRecvd);
 
 5. Going further the tool loops through all rows in the table and get the value from each column:
-int AppId = (int)Api.RetrieveColumnAsInt32(sesid, tableid, columndefAppId.columnid);
-DateTime Time = (DateTime)Api.RetrieveColumnAsDateTime(sesid, tableid, columndefTime.columnid);
-Int64 BytesSent = (Int64)Api.RetrieveColumnAsInt64(sesid, tableid, columndefBytesSent.columnid);
-Int64 BytesRecvd = (Int64)Api.RetrieveColumnAsInt64(sesid, tableid, columndefBytesRecvd.columnid);
-string SRUM_ProcessName = GetName(instance, sesid, dbid, AppId);
+        int AppId = (int)Api.RetrieveColumnAsInt32(sesid, tableid, columndefAppId.columnid);
+        DateTime Time = (DateTime)Api.RetrieveColumnAsDateTime(sesid, tableid, columndefTime.columnid);
+        Int64 BytesSent = (Int64)Api.RetrieveColumnAsInt64(sesid, tableid, columndefBytesSent.columnid);
+        Int64 BytesRecvd = (Int64)Api.RetrieveColumnAsInt64(sesid, tableid, columndefBytesRecvd.columnid);
+        string SRUM_ProcessName = GetName(instance, sesid, dbid, AppId);
 
 As you could observed above each value is stored using a diiferent data type. It's quite important as you have to know which method you will choose to extract that data. I found one article that shows data types for all tables: 
 - http://dfir.pro/index.php?link_id=92259,
