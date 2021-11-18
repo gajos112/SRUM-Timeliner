@@ -69,7 +69,7 @@ If the file you provided is not a valid SRUM db, the tool will throw an error. I
         Int64 BytesRecvd = (Int64)Api.RetrieveColumnAsInt64(sesid, tableid, columndefBytesRecvd.columnid);
         string SRUM_ProcessName = GetName(instance, sesid, dbid, AppId);
 
-As you could observe above, each value is stored using a different data type. It's quite important as you have to know which method you will choose to extract that data. I found one article that shows data types for all tables: 
+As you could observe above, each value is stored using a different data type. It's quite important as you have to know which method you will choose to extract that data. I found one article that shows data types for all SRUM's tables: 
 - http://dfir.pro/index.php?link_id=92259,
 
 What is more in the table you can not find the name of executables, only the application ID. Below you can find a screenshot showing how the table looks like: 
