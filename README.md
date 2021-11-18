@@ -72,7 +72,11 @@ If the file ou provided is not a valid SRUM db, the tool will throw an error. If
 As you could observe above, each value is stored using a different data type. It's quite important as you have to know which method you will choose to extract that data. I found one article that shows data types for all tables: 
 - http://dfir.pro/index.php?link_id=92259,
 
-What is more in the table you can not find the name of executables, only the application ID. Then there is another table called "SruDbIdMapTable", which stores the name for each ID. The name is an UTF-16 encoded string. Therefore I created a method that retrieves the name of the executable based on the Application ID. 
+What is more in the table you can not find the name of executables, only the application ID. Below you can find a screenshot showing how the table looks like: 
+
+![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/14.PNG?raw=true)
+
+Then there is another table called "SruDbIdMapTable", which stores the name for each ID. The name is an UTF-16 encoded string. Therefore I created a method that retrieves the name of the executable based on the Application ID. 
 
         static string GetName(JET_INSTANCE instance, JET_SESID sesid, JET_DBID dbid, int AppId)
         {
@@ -108,6 +112,11 @@ What is more in the table you can not find the name of executables, only the app
 
         stringbuilder.Append(SRUM_Time + ",SRUM,,,[Network Connection] SRUM - Executable: " + SRUM_ProcessName + " -> Bytes Sent: " + BytesSent + " -> Bytes received: " + BytesRecvd + "\r\n");
         File.AppendAllText(CSVPath, stringbuilder.ToString());
+        
+There is one small log panel, that tells where the TIMELINE was saved to and few other basics information showing the status of analysis. 
+
+![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/8.PNG?raw=true)
+
 
 7. Create a LIST of sent and received bytes for each process. 
 
@@ -131,7 +140,10 @@ Once you click "Show the baseline" you will find 4 charts:
 
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/10.PNG?raw=true)
 
-You can also zoom in and zoom out the charts if you want to.
+You can also zoom in and zoom out the charts if you want to. In addition to that in the bottom there are two panels storing some basic statistics.
+
+![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/11.PNG?raw=true)
+
 
 # Timeline
 
@@ -140,15 +152,3 @@ The timeline contains all entires extracted from the database. You can easily re
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/12.png?raw=true)
 
 ![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/13.png?raw=true)
-
-
-
-
-
-
-![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/7.PNG?raw=true)
-![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/8.PNG?raw=true)
-
-![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/11.PNG?raw=true)
-
-![alt text](https://github.com/gajos112/SRUM-Timeliner/blob/main/Images/14.PNG?raw=true)
